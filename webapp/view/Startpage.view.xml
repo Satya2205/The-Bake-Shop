@@ -1,7 +1,32 @@
 <mvc:View controllerName="com.sp.ordertodelivery.controller.Startpage"
     xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
-    xmlns="sap.m">
+    xmlns="sap.m"
+    xmlns:layout="sap.ui.layout">
     <Page id="page" title="{i18n>title}">
-        <content />
+        <content>
+            <layout:VerticalLayout class="sapUiResponsiveMargin">
+                <Title
+                    titleStyle="H2"
+                    text="{i18n>tiles}"
+                    class="sapUiTinyMarginBegin" />
+                <layout:HorizontalLayout allowWrapping="true">
+                <!--Dynamic- (subheader,value,valueColor)-->
+                <GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout"
+                    header="{i18n>tile1}" subheader="{i18n>tile1_subH}" press=".onNavToProcessFlow">
+                    <TileContent>
+                        <NumericContent scale="%" value="{tile>/progressPercentage}"
+                            valueColor="{parts:['tile>/progressPercentage'], formatter:'.formatter.tileValueColor'}"
+                            icon="sap-icon://factory"></NumericContent>
+                    </TileContent>
+                </GenericTile>
+
+                <!--Dynamic- (header)-->
+                <GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout"
+                    mode="HeaderMode" header="{i18n>tile2_part1} {tile>/year} {i18n>tile2_part2}">
+
+                </GenericTile>
+            </layout:HorizontalLayout>
+            </layout:VerticalLayout>
+        </content>
     </Page>
 </mvc:View>
