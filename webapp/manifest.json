@@ -1,0 +1,138 @@
+{
+  "_version": "1.59.0",
+  "sap.app": {
+    "id": "com.sp.ordertodelivery",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:basic",
+      "version": "1.13.2",
+      "toolsId": "f56584cb-78f5-47ec-8d3e-5132ab249288"
+    },
+    "dataSources": {
+      "mainService": {
+        "uri": "/V2/(S(arqrq225s4jvfucyx3excowy))/OData/OData.svc/",
+        "type": "OData",
+        "settings": {
+          "annotations": [],
+          "localUri": "localService/metadata.xml",
+          "odataVersion": "2.0"
+        }
+      }
+    },
+    "crossNavigation": {
+      "inbounds": {
+        "orderToDelivery-Display": {
+          "semanticObject": "orderToDelivery",
+          "action": "Display",
+          "title": "{{flpTitle}}",
+          "signature": {
+            "parameters": {},
+            "additionalParameters": "allowed"
+          }
+        }
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": true,
+    "dependencies": {
+      "minUI5Version": "1.122.2",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {},
+        "sap.f": {},
+        "sap.suite.ui.generic.template": {},
+        "sap.ui.comp": {},
+        "sap.ui.generic.app": {},
+        "sap.ui.table": {},
+        "sap.ushell": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "com.sp.ordertodelivery.i18n.i18n"
+        }
+      },
+      "": {
+        "dataSource": "mainService",
+        "preload": true,
+        "settings": {}
+      }
+    },
+    "resources": {
+      "css": [
+        {
+          "uri": "css/style.css"
+        }
+      ]
+    },
+    "routing": {
+      "config": {
+        "routerClass": "sap.m.routing.Router",
+        "viewType": "XML",
+        "async": true,
+        "viewPath": "com.sp.ordertodelivery.view",
+        "controlAggregation": "pages",
+        "controlId": "app",
+        "clearControlAggregation": false
+      },
+      "routes": [
+        {
+          "name": "RouteStartpage",
+          "pattern": ":?query:",
+          "target": [
+            "TargetStartpage"
+          ]
+        }
+      ],
+      "targets": {
+        "TargetStartpage": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "Startpage",
+          "viewName": "Startpage"
+        }
+      }
+    },
+    "rootView": {
+      "viewName": "com.sp.ordertodelivery.view.App",
+      "type": "XML",
+      "async": true,
+      "id": "App"
+    }
+  },
+  "sap.cloud": {
+    "public": true,
+    "service": "comspordertodelivery"
+  }
+}
