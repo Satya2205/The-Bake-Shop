@@ -1,6 +1,7 @@
 <mvc:View controllerName="com.sp.ordertodelivery.controller.Startpage"
     xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
     xmlns="sap.m"
+    xmlns:microchart="sap.suite.ui.microchart"
     xmlns:layout="sap.ui.layout">
     <Page id="page" title="{i18n>title}" backgroundDesign="Transparent" class="myBackgroundStyle">
         <content>
@@ -10,32 +11,53 @@
                     text="{i18n>tiles}"
                     class="sapUiTinyMarginBegin" />
                 <layout:HorizontalLayout allowWrapping="true">
-                <!--Dynamic- (subheader,value,valueColor)-->
-                <GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout"
-                    header="{i18n>tile1}" subheader="{i18n>tile1_subH}" press=".onNavToProcessFlow">
-                    <TileContent>
-                        <NumericContent scale="%" value="{tile>/progressPercentage}"
-                            valueColor="{parts:['tile>/progressPercentage'], formatter:'.formatter.tileValueColor'}"
-                            icon="sap-icon://factory"></NumericContent>
-                    </TileContent>
-                </GenericTile>
+                    <!--Dynamic-
+                    (subheader,value,valueColor)-->
+                    <GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout"
+                        header="{i18n>tile1}" subheader="{i18n>tile1_subH}"
+                        press=".onNavToProcessFlow">
+                        <TileContent>
+                            <content>
+                                <NumericContent scale="%" value="{tile>/progressPercentage}"
+                                    valueColor="{parts:['tile>/progressPercentage'], formatter:'.formatter.tileValueColor'}"
+                                    icon="sap-icon://factory">
+                                </NumericContent>
+                            </content>
+                        </TileContent>
+                    </GenericTile>
 
-                <!--Dynamic- (header)-->
-                <GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout"
-                    mode="HeaderMode" header="{i18n>tile2_part1} {tile>/year} {i18n>tile2_part2}">
-
-                </GenericTile>
-
-                <GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout"
-                    header="{i18n>tile3}"  press=".onNavToUserReviews">
-                    <TileContent>
+                    <!--Dynamic-
+                    (header)-->
+                    <GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout"
+                        header="{i18n>tile2_part1} {tile>/year} {i18n>tile2_part2}">
+                        <TileContent>
+                            <content>
+                                <microchart:BulletMicroChart size="Responsive"
+                                    targetValue="{tile>/plannedExpenses}" scale="M" minValue="0">
+                                    <microchart:actual>
+                                        <microchart:BulletMicroChartData value="{tile>/expenses}"
+                                            color="Critical"></microchart:BulletMicroChartData>
+                                    </microchart:actual>
+                                    <microchart:thresholds>
+                                        <microchart:BulletMicroChartData
+                                            value="{tile>/expensesCritical}" color="Critical"></microchart:BulletMicroChartData>
+                                        <microchart:BulletMicroChartData value="{tile>/budget}"
+                                            color="Error"></microchart:BulletMicroChartData>
+                                    </microchart:thresholds>
+                                </microchart:BulletMicroChart>
+                            </content>
+                        </TileContent>
+                    </GenericTile>
+                    <GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout"
+                     header="{i18n>tile3}"  press=".onNavToUserReviews">
+                      <TileContent>
                         <NumericContent value="{tile>/reviewNumbers}" indicator="None" valueColor="Neutral"></NumericContent>
-                    </TileContent>
-                </GenericTile>
-                <GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop"
-					header="{i18n>tile4}" press=".onNavToSalesAnalysis">
-					<tileContent>
-						<TileContent>
+                        </TileContent>
+                    </GenericTile>
+                    <GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop"
+					            header="{i18n>tile4}" press=".onNavToSalesAnalysis">
+					          <tileContent>
+						            <TileContent>
 							<content>
 								<ImageContent src="sap-icon://business-objects-experience"/>
 							</content>
@@ -65,7 +87,9 @@
 						</tileContent>
 					</GenericTile>
 				</SlideTile>
-            </layout:HorizontalLayout>
+               
+                </layout:HorizontalLayout>
+
             </layout:VerticalLayout>
         </content>
     </Page>
