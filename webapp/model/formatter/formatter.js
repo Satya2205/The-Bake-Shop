@@ -9,6 +9,10 @@ sap.ui.define([], () => {
             } else {
                 return "Good";
             }
-        }
+        },
+        formatJSONDate: function (date) {
+			var oDate = new Date(Date.parse(date));
+			return oDate.toLocaleDateString();
+		}
     }
 });

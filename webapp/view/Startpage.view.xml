@@ -2,7 +2,7 @@
     xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
     xmlns="sap.m"
     xmlns:layout="sap.ui.layout">
-    <Page id="page" title="{i18n>title}">
+    <Page id="page" title="{i18n>title}" backgroundDesign="Transparent" class="myBackgroundStyle">
         <content>
             <layout:VerticalLayout class="sapUiResponsiveMargin">
                 <Title
@@ -25,6 +25,46 @@
                     mode="HeaderMode" header="{i18n>tile2_part1} {tile>/year} {i18n>tile2_part2}">
 
                 </GenericTile>
+
+                <GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout"
+                    header="{i18n>tile3}"  press=".onNavToUserReviews">
+                    <TileContent>
+                        <NumericContent value="{tile>/reviewNumbers}" indicator="None" valueColor="Neutral"></NumericContent>
+                    </TileContent>
+                </GenericTile>
+                <GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop"
+					header="{i18n>tile4}" press=".onNavToSalesAnalysis">
+					<tileContent>
+						<TileContent>
+							<content>
+								<ImageContent src="sap-icon://business-objects-experience"/>
+							</content>
+						</TileContent>
+					</tileContent>
+				</GenericTile>
+                <SlideTile
+					class="sapUiTinyMarginBegin sapUiTinyMarginTop"
+					tiles="{tile>/News}">
+					<GenericTile
+						backgroundImage="{tile>image}"
+						state="{tile>state}"
+						frameType="TwoByOne">
+						<tileContent>
+							<TileContent>
+								<!-- footer="{
+									path: 'tile>date',
+									formatter: 'formatter.formatJSONDate'
+								}" -->
+								<content>
+									<FeedContent
+										contentText="{tile>content}"
+										subheader="{tile>subheader}">
+									</FeedContent>
+								</content>
+							</TileContent>
+						</tileContent>
+					</GenericTile>
+				</SlideTile>
             </layout:HorizontalLayout>
             </layout:VerticalLayout>
         </content>

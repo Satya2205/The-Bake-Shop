@@ -1,5 +1,22 @@
 {
     "progressPercentage": 50,
-    "year":2000
+    "year":2000,
+    "reviewNumbers":10,
+    "News": [
+        {
+                "content": "The best cake I've had in years!",
+                "subheader": "Early Adopter of the bake shop",
+                "date": "2016-12-07T09:42:32.910Z",
+                "image": "images/cupcakes.jpg"
+        },
+        
+        
+        {
+            "content": "Your first Cake in the Bake Shop?",
+            "subheader": "Find your favorite flavour here.",
+            "date": "2016-12-06T00:00:00.000Z",
+            "image": "images/strawberry.jpeg"
+        }
+    ]
 
 }
