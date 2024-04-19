@@ -5,20 +5,22 @@
     xmlns:layout="sap.ui.layout">
     <Page id="page" title="{i18n>title}" backgroundDesign="Transparent" class="myBackgroundStyle">
         <content>
-            <layout:VerticalLayout class="sapUiResponsiveMargin">
-                <Title
+            <layout:VerticalLayout id="_IDGenVerticalLayout1" class="sapUiResponsiveMargin">
+                <Title id="_IDGenTitle1"
                     titleStyle="H2"
                     text="{i18n>tiles}"
                     class="sapUiTinyMarginBegin" />
-                <layout:HorizontalLayout allowWrapping="true">
+                <layout:HorizontalLayout id="_IDGenHorizontalLayout1" allowWrapping="true">
                     <!--Dynamic-
                     (subheader,value,valueColor)-->
-                    <GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout"
+                    <GenericTile id="_IDGenGenericTile1"
+                        class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout"
                         header="{i18n>tile1}" subheader="{i18n>tile1_subH}"
                         press=".onNavToProcessFlow">
-                        <TileContent>
+                        <TileContent id="_IDGenTileContent1">
                             <content>
-                                <NumericContent scale="%" value="{tile>/progressPercentage}"
+                                <NumericContent id="_IDGenNumericContent1" scale="%"
+                                    value="{tile>/progressPercentage}"
                                     valueColor="{parts:['tile>/progressPercentage'], formatter:'.formatter.tileValueColor'}"
                                     icon="sap-icon://factory">
                                 </NumericContent>
@@ -28,66 +30,76 @@
 
                     <!--Dynamic-
                     (header)-->
-                    <GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout"
+                    <GenericTile id="_IDGenGenericTile2"
+                        class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout"
                         header="{i18n>tile2_part1} {tile>/year} {i18n>tile2_part2}">
-                        <TileContent>
+                        <TileContent id="_IDGenTileContent2">
                             <content>
-                                <microchart:BulletMicroChart size="Responsive"
+                                <microchart:BulletMicroChart id="_IDGenBulletMicroChart1"
+                                    size="Responsive"
                                     targetValue="{tile>/plannedExpenses}" scale="M" minValue="0">
                                     <microchart:actual>
-                                        <microchart:BulletMicroChartData value="{tile>/expenses}"
+                                        <microchart:BulletMicroChartData
+                                            id="_IDGenBulletMicroChartData1"
+                                            value="{tile>/expenses}"
                                             color="Critical"></microchart:BulletMicroChartData>
                                     </microchart:actual>
                                     <microchart:thresholds>
                                         <microchart:BulletMicroChartData
+                                            id="_IDGenBulletMicroChartData2"
                                             value="{tile>/expensesCritical}" color="Critical"></microchart:BulletMicroChartData>
-                                        <microchart:BulletMicroChartData value="{tile>/budget}"
+                                        <microchart:BulletMicroChartData
+                                            id="_IDGenBulletMicroChartData3" value="{tile>/budget}"
                                             color="Error"></microchart:BulletMicroChartData>
                                     </microchart:thresholds>
                                 </microchart:BulletMicroChart>
                             </content>
                         </TileContent>
                     </GenericTile>
-                    <GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout"
-                     header="{i18n>tile3}"  press=".onNavToUserReviews">
-                      <TileContent>
-                        <NumericContent value="{tile>/reviewNumbers}" indicator="None" valueColor="Neutral"></NumericContent>
+                    <GenericTile id="_IDGenGenericTile3"
+                        class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout"
+                        header="{i18n>tile3}" press=".onNavToUserReviews">
+                        <TileContent id="_IDGenTileContent3">
+                            <NumericContent id="_IDGenNumericContent2" value="{tile>/reviewNumbers}"
+                                indicator="None" valueColor="Neutral"></NumericContent>
                         </TileContent>
                     </GenericTile>
-                    <GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop"
-					            header="{i18n>tile4}" press=".onNavToSalesAnalysis">
-					          <tileContent>
-						            <TileContent>
-							<content>
-								<ImageContent src="sap-icon://business-objects-experience"/>
-							</content>
-						</TileContent>
-					</tileContent>
-				</GenericTile>
-                <SlideTile
-					class="sapUiTinyMarginBegin sapUiTinyMarginTop"
-					tiles="{tile>/News}">
-					<GenericTile
-						backgroundImage="{tile>image}"
-						state="{tile>state}"
-						frameType="TwoByOne">
-						<tileContent>
-							<TileContent>
-								<!-- footer="{
+                    <GenericTile id="_IDGenGenericTile4"
+                        class="sapUiTinyMarginBegin sapUiTinyMarginTop"
+                        header="{i18n>tile4}" press=".onNavToSalesAnalysis">
+                        <tileContent>
+                            <TileContent id="_IDGenTileContent4">
+                                <content>
+                                    <ImageContent id="_IDGenImageContent1"
+                                        src="sap-icon://business-objects-experience" />
+                                </content>
+                            </TileContent>
+                        </tileContent>
+                    </GenericTile>
+                    <SlideTile id="_IDGenSlideTile1"
+                        class="sapUiTinyMarginBegin sapUiTinyMarginTop"
+                        tiles="{tile>/News}">
+                        <GenericTile id="_IDGenGenericTile5"
+                            backgroundImage="{tile>image}"
+                            state="{tile>state}"
+                            frameType="TwoByOne">
+                            <tileContent>
+                                <TileContent id="_IDGenTileContent5">
+                                    <!-- footer="{
 									path: 'tile>date',
 									formatter: 'formatter.formatJSONDate'
 								}" -->
-								<content>
-									<FeedContent
-										contentText="{tile>content}"
-										subheader="{tile>subheader}">
-									</FeedContent>
-								</content>
-							</TileContent>
-						</tileContent>
-					</GenericTile>
-				</SlideTile>
-               
+                                    <content>
+                                        <FeedContent id="_IDGenFeedContent1"
+                                            contentText="{tile>content}"
+                                            subheader="{tile>subheader}">
+                                        </FeedContent>
+                                    </content>
+                                </TileContent>
+                            </tileContent>
+                        </GenericTile>
+                    </SlideTile>
+
                 </layout:HorizontalLayout>
 
             </layout:VerticalLayout>
