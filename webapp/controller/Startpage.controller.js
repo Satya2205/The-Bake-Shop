@@ -8,13 +8,14 @@ sap.ui.define([
      */
     function (Controller, JSONModel, formatter) {
         "use strict";
-        var oView, ownerComponent;
+        var oView, ownerComponent, oRouter;
         return Controller.extend("com.sp.ordertodelivery.controller.Startpage", {
             formatter: formatter,
 
             onInit: function () {
                 oView = this.getView();
                 ownerComponent = this.getOwnerComponent();
+                oRouter = this.getOwnerComponent().getRouter();
                 this.setYear();
             },
             setYear: function () {
@@ -22,6 +23,15 @@ sap.ui.define([
                 let year = date.getFullYear();
                 ownerComponent.getModel("tile").setProperty("/year", year);
 
+            },
+            onNavToProcessFlow: function(){
+                oRouter.navTo("ProcessFlow");
+            },
+            onNavToUserReviews: function(){
+                oRouter.navTo("UserReview");
+            },
+            onNavToSalesAnalysis: function(){
+                oRouter.navTo("SalesAnalysis");
             }
         });
     });
