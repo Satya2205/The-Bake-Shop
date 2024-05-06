@@ -116,6 +116,27 @@
           "target": [
             "TargetStartpage"
           ]
+        },
+        {
+          "name": "ProcessFlow",
+          "pattern": "ProcessFlow",
+          "target": [
+            "ProcessFlow"
+          ]
+        },
+        {
+          "name": "UserReview",
+          "pattern": "UserReview",
+          "target": [
+            "UserReview"
+          ]
+        },
+        {
+          "name": "SalesAnalysis",
+          "pattern": "SalesAnalysis",
+          "target": [
+            "SalesAnalysis"
+          ]
         }
       ],
       "targets": {
@@ -125,6 +146,27 @@
           "clearControlAggregation": false,
           "viewId": "Startpage",
           "viewName": "Startpage"
+        },
+        "ProcessFlow": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "ProcessFlow",
+          "viewName": "ProcessFlow"
+        },
+        "UserReview": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "UserReview",
+          "viewName": "UserReview"
+        },
+        "SalesAnalysis": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "SalesAnalysis",
+          "viewName": "SalesAnalysis"
         }
       }
     },
