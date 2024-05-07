@@ -3,7 +3,13 @@
   "sap.app": {
     "id": "com.sp.ordertodelivery",
     "type": "application",
-    "i18n": "i18n/i18n.properties",
+    "i18n": {
+			"bundleUrl": "i18n/i18n.properties",
+			"supportedLocales": [
+				""
+			],
+			"fallbackLocale": ""
+		},
     "applicationVersion": {
       "version": "0.0.1"
     },
@@ -63,12 +69,13 @@
       "libs": {
         "sap.m": {},
         "sap.ui.core": {},
-        "sap.f": {},
-        "sap.suite.ui.generic.template": {},
-        "sap.ui.comp": {},
-        "sap.ui.generic.app": {},
-        "sap.ui.table": {},
-        "sap.ushell": {}
+        "sap.ui.table": {
+          "lazy": true
+        },
+        "sap.ui.layout": {},
+				"sap.ui.commons": {},
+				"sap.suite.ui.commons": {},
+				"sap.suite.ui.microchart": {}
       }
     },
     "contentDensities": {
@@ -79,7 +86,11 @@
       "i18n": {
         "type": "sap.ui.model.resource.ResourceModel",
         "settings": {
-          "bundleName": "com.sp.ordertodelivery.i18n.i18n"
+          "bundleName": "com.sp.ordertodelivery.i18n.i18n",
+          "supportedLocalies":[
+            ""
+          ],
+          "fallbackLocale":""
         }
       },
       "": {
